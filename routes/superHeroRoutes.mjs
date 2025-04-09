@@ -105,7 +105,7 @@ router.get('/heroes/crear', (req, res) => {
     navbarLinks: [
       { href: '/', icon: '/icons/home.svg', text: 'Inicio' },
       { href: '/heroes', icon: '/icons/hero.svg', text: 'Héroes' },
-      { href: '/heroes/crear', icon: '/icons/add.svg', text: 'Crear Héroe' }
+      { href: '/api/desa/heroes/crear', icon: '/icons/add.svg', text: 'Crear Héroe' }
     ]
   });
 });
