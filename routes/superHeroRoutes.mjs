@@ -14,6 +14,7 @@ import {
 
 import { validationDataSuperHeros } from "../middlewares/validationRules.mjs";
 import { handleValidationErrors } from "../middlewares/errorMiddleware.mjs";
+import { title } from "process";
 
 const router = express.Router();
 // ------------------------------------------------------------------------------------------------ //
@@ -68,9 +69,9 @@ router.get('/test', (req, res) => {
 
 // RUTA PARA OBTENER TODOS LOS DATOS Y MOSTRARLO EN EL DASHBOARD
 router.get('/heroes/dashboard', obtenerTodosLosSuperheroesController);
-router.get('/heroes/crear', (req, res) => {
-  res.render('addSuperhero');
-});
+// router.get('/heroes/crear', (req, res) => {
+//   res.render('addSuperhero');
+// });
 
 // RUTA PARA CREAR UN NUEVO SUPERHEROE
 router.post('/heroes/crear', validationDataSuperHeros(), handleValidationErrors, crearNuevoSuperheroeController);
@@ -83,6 +84,31 @@ router.put('/heroes/:id/editar', validationDataSuperHeros(), handleValidationErr
 
 // RUTA PARA ELIMINAR UN SUPERHEROE
 router.delete('/heroes/:id', eliminarSuperheroePorIdController);
+
+
+// RUTA PARA RENDERIZAR LA PAGINA PRINCIPAL
+router.get('/heroes/index', (req, res) => {
+  res.render('index', {
+    title: 'Página Principal',
+    navbarLinks: [
+      { href: '/api/desa', icon: '/icons/home.svg', text: 'Inicio' },
+      { href: '/api/desa/heroes', icon: '/icons/hero.svg', text: 'Héroes' },
+      { href: '/api/desa/heroes/crear', icon: '/icons/add.svg', text: 'Crear Héroe' }
+    ]
+  });
+});
+
+// RUTA PARA RENDERIZAR EL FORMULARIO DE CREACIÓN
+router.get('/heroes/crear', (req, res) => {
+  res.render('crearSuperheroe', {
+    title: 'Crear Nuevo Héroe',
+    navbarLinks: [
+      { href: '/', icon: '/icons/home.svg', text: 'Inicio' },
+      { href: '/heroes', icon: '/icons/hero.svg', text: 'Héroes' },
+      { href: '/heroes/crear', icon: '/icons/add.svg', text: 'Crear Héroe' }
+    ]
+  });
+});
 
 
 
