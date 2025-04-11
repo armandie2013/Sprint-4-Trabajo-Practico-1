@@ -1,7 +1,6 @@
 import express from 'express';
 import { connectDB } from "./config/dbConfig.mjs";
 import superHeroRoutes from './routes/superHeroRoutes.mjs'
-import { obtenerTodosLosSuperheroesController } from './controllers/superheroesController.mjs';
 import methodOverride from 'method-override';
 import path from 'path';
 import expressEjsLayouts from 'express-ejs-layouts';
