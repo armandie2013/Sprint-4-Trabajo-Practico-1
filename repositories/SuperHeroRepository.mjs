@@ -10,15 +10,8 @@ class SuperHeroRepository extends IRepository {
   }
   async buscarPorAtributo(atributo, valor) {
     return await SuperHero.find({ [atributo]: valor });
-
-    // Alternativa más clara: //
-    /*const busquedaAtributoValor = {};
-    busquedaAtributoValor[atributo] = valor;
-    return await SuperHero.find(busquedaAtributoValor);*/
   }
   async obtenerMayoresDe30() {
-    // FILTRADO POR METODO DE CARGA EN MEMORIA //
-
     const superheroes = await SuperHero.find({});
     return superheroes.filter((superheroe) => superheroe.edad > 30);
 

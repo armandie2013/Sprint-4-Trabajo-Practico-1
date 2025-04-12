@@ -14,7 +14,7 @@ import {
 } from "../views/responseView.mjs";
 
 import superHero from "../models/SuperHero.mjs";
-import { text } from "express";
+
 
 export async function obtenerSuperheroePorIdController(req, res) {
   try {
