@@ -1,20 +1,42 @@
-<nav class="bg-black px-6 py-4">
+<!-- <nav class="bg-black px-6 py-4">
     <div class="flex items-center justify-between">
-      <!-- Logo a la izquierda -->
+      
       <a href="/" class="flex items-center space-x-2">
         <img src="/images/logo.png" alt="logo" class="h-8 w-auto">
       </a>
   
-      <!-- Links a la derecha -->
+      
       <ul class="flex items-center space-x-6">
         <% navbarLinks.forEach(link => { %>
           <li>
             <a href="<%= link.href %>" class="flex items-center text-white hover:text-gray-300 transition-colors">
-              <!-- <img src="<%= link.icon %>" alt="<%= link.text %> Icono" class="h-5 w-5 mr-2"> -->
+              
               <span><%= link.text %></span>
             </a>
           </li>
         <% }) %>
       </ul>
+    </div>
+  </nav> -->
+
+  <nav class="bg-black px-6 py-4">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <img src="/images/logo.png" alt="logo" class="h-8 w-auto">
+      </a>
+  
+      <!-- Menú de navegación -->
+      <ul class="flex flex-col lg:flex-row w-full lg:w-auto space-y-2 lg:space-y-0 lg:space-x-6">
+        <% navbarLinks.forEach(link => { %>
+          <li>
+            <a href="<%= link.href %>" class="text-white hover:text-gray-300 transition-colors block">
+              <span><%= link.text %></span>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+      
     </div>
   </nav>
