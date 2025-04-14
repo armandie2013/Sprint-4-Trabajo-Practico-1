@@ -35,8 +35,12 @@ app.use(express.static(path.resolve('./public')));
 
 
 
+////// PRUEBA REDIRECCIONAMIENTO 
+app.get("/", (req, res) => {
+  res.redirect("/api/desa/heroes/index");
+});
 
-
+///////////////////////////////////////////
 
 app.use('/api/desa', superHeroRoutes);
 
