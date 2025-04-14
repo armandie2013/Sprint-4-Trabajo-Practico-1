@@ -35,8 +35,12 @@ app.use(express.static(path.resolve('./public')));
 
 
 
+////// PRUEBA REDIRECCIONAMIENTO 
+app.get("/", (req, res) => {
+  res.redirect("/api/desa/heroes/index");
+});
 
-
+///////////////////////////////////////////
 
 app.use('/api/desa', superHeroRoutes);
 
@@ -72,6 +76,6 @@ app.use((req, res) => {
     res.status(404).send({ mensaje: "Ruta no encontrada" });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
