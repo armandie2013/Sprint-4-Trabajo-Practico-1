@@ -46,7 +46,7 @@ export const obtenerTodosLosSuperheroesController = async (req, res) => {
       { href: "/api/desa/heroes/index", icon: "/icons/home.svg", text: "Inicio" },
       { href: "/api/desa/heroes/dashboard", icon: "/icons/hero.svg", text: "Dashboard" },
       { href: "/api/desa/heroes/crear", icon: "/icons/add.svg", text: "Crear Héroe" },
-      { href: "/api/desa/heroes/acercadenosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
+      { href: "/api/desa/heroes/nosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
       { href: "/api/desa/heroes/contacto", icon: "/icons/add.svg", text: "Contacto" },
     ]
     });
@@ -105,7 +105,7 @@ export function mostrarFormularioCreacion(req, res) {
       { href: "/api/desa/heroes/index", icon: "/icons/home.svg", text: "Inicio" },
       { href: "/api/desa/heroes/dashboard", icon: "/icons/hero.svg", text: "Dashboard" },
       { href: "/api/desa/heroes/crear", icon: "/icons/add.svg", text: "Crear Héroe" },
-      { href: "/api/desa/heroes/acercadenosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
+      { href: "/api/desa/heroes/nosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
       { href: "/api/desa/heroes/contacto", icon: "/icons/add.svg", text: "Contacto" },
     ]
   });
@@ -258,7 +258,7 @@ export async function mostrarFormularioEdicion(req, res) {
       { href: "/api/desa/heroes/index", icon: "/icons/home.svg", text: "Inicio" },
       { href: "/api/desa/heroes/dashboard", icon: "/icons/hero.svg", text: "Dashboard" },
       { href: "/api/desa/heroes/crear", icon: "/icons/add.svg", text: "Crear Héroe" },
-      { href: "/api/desa/heroes/acercadenosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
+      { href: "/api/desa/heroes/nosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
       { href: "/api/desa/heroes/contacto", icon: "/icons/add.svg", text: "Contacto" },
       ]
     });

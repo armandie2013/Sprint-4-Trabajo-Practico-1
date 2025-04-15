@@ -26,6 +26,8 @@ app.set("layout", "layout");
 // Servir archivos estaticos
 app.use(express.static(path.resolve("./public")));
 
+
+
 // PRUEBA REDIRECCIONAMIENTO RENDER //
 
 //--------------------------------------------------------------------------------------------------
