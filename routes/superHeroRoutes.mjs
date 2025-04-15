@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Router } from "express";
 import {
   obtenerSuperheroePorIdController,
   obtenerTodosLosSuperheroesController,
@@ -22,37 +22,130 @@ import { transformarCamposArray } from "../middlewares/transformarCamposArray.mj
 const router = express.Router();
 // ------------------------------------------------------------------------------------------------ //
 
-
 // RUTA PARA RENDERIZAR LA PAGINA PRINCIPAL
 router.get("/heroes/index", (req, res) => {
   res.render("index", {
     title: "Página Principal",
     navbarLinks: [
-      { href: "/api/desa/heroes/index", icon: "/icons/home.svg", text: "Inicio" },
-      { href: "/api/desa/heroes/dashboard", icon: "/icons/hero.svg", text: "Dashboard" },
-      { href: "/api/desa/heroes/crear", icon: "/icons/add.svg", text: "Crear Héroe" },
-      { href: "/api/desa/heroes/acercadenosotros", icon: "/icons/add.svg", text: "Acerca de Nosotros" },
-      { href: "/api/desa/heroes/contacto", icon: "/icons/add.svg", text: "Contacto" },
+      {
+        href: "/api/desa/heroes/index",
+        icon: "/icons/home.svg",
+        text: "Inicio",
+      },
+      {
+        href: "/api/desa/heroes/dashboard",
+        icon: "/icons/hero.svg",
+        text: "Dashboard",
+      },
+      {
+        href: "/api/desa/heroes/crear",
+        icon: "/icons/add.svg",
+        text: "Crear Héroe",
+      },
+      {
+        href: "/api/desa/heroes/nosotros",
+        icon: "/icons/add.svg",
+        text: "Acerca de Nosotros",
+      },
+      {
+        href: "/api/desa/heroes/contacto",
+        icon: "/icons/add.svg",
+        text: "Contacto",
+      },
     ],
   });
 });
 
-
-
 // RUTA PARA OBTENER TODOS LOS DATOS Y MOSTRARLO EN EL DASHBOARD
-router.get('/heroes/dashboard', obtenerTodosLosSuperheroesController);
+router.get("/heroes/dashboard", obtenerTodosLosSuperheroesController);
 
 // RUTA PARA CREAR UN NUEVO SUPERHEROE
-router.get('/heroes/crear', mostrarFormularioCreacion);
-router.post('/heroes/crear', transformarCamposArray, validationDataSuperHeros(), handleValidationErrors, crearNuevoSuperheroeController);
+router.get("/heroes/crear", mostrarFormularioCreacion);
+router.post("/heroes/crear",
+  transformarCamposArray,
+  validationDataSuperHeros(),
+  handleValidationErrors,
+  crearNuevoSuperheroeController
+);
 
 // RUTA PARA EDITAR UN SUPERHEROE
-router.get('/heroes/:id/editar', mostrarFormularioEdicion);
-router.put('/heroes/:id/editar', transformarCamposArray, validationDataSuperHeros(), handleValidationErrors, editarSuperheroeController);
+router.get("/heroes/:id/editar", mostrarFormularioEdicion);
+router.put("/heroes/:id/editar",
+  transformarCamposArray,
+  validationDataSuperHeros(),
+  handleValidationErrors,
+  editarSuperheroeController
+);
 
-// // RUTA PARA ELIMINAR UN SUPERHEROE
+// RUTA PARA ELIMINAR UN SUPERHEROE
 router.delete("/heroes/:id", eliminarSuperheroePorIdController);
 
+// RUTA ACERCA DE NOSOTROS
+router.get("/heroes/nosotros", (req, res) => {
+  res.render("acercaDe", {
+    title: "Nosotros",
+    navbarLinks: [
+      {
+        href: "/api/desa/heroes/index",
+        icon: "/icons/home.svg",
+        text: "Inicio",
+      },
+      {
+        href: "/api/desa/heroes/dashboard",
+        icon: "/icons/hero.svg",
+        text: "Dashboard",
+      },
+      {
+        href: "/api/desa/heroes/crear",
+        icon: "/icons/add.svg",
+        text: "Crear Héroe",
+      },
+      {
+        href: "/api/desa/heroes/nosotros",
+        icon: "/icons/add.svg",
+        text: "Acerca de Nosotros",
+      },
+      {
+        href: "/api/desa/heroes/contacto",
+        icon: "/icons/add.svg",
+        text: "Contacto",
+      },
+    ],
+  });
+});
 
+// RUTA ACERCA DE NOSOTROS
+router.get("/heroes/contacto", (req, res) => {
+  res.render("contacto", {
+    title: "Contacto",
+    navbarLinks: [
+      {
+        href: "/api/desa/heroes/index",
+        icon: "/icons/home.svg",
+        text: "Inicio",
+      },
+      {
+        href: "/api/desa/heroes/dashboard",
+        icon: "/icons/hero.svg",
+        text: "Dashboard",
+      },
+      {
+        href: "/api/desa/heroes/crear",
+        icon: "/icons/add.svg",
+        text: "Crear Héroe",
+      },
+      {
+        href: "/api/desa/heroes/nosotros",
+        icon: "/icons/add.svg",
+        text: "Acerca de Nosotros",
+      },
+      {
+        href: "/api/desa/heroes/contacto",
+        icon: "/icons/add.svg",
+        text: "Contacto",
+      },
+    ],
+  });
+});
 
 export default router;
